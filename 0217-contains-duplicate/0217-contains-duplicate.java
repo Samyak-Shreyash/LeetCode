@@ -1,6 +1,9 @@
 class Solution {
     public boolean containsDuplicate(int[] arr) {
-        Set<Integer> trialSet = new HashSet<>(Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new)));
-       return !(trialSet.size()==arr.length);
+        Arrays.sort(arr);
+        for(int i=0;i<arr.length-1;i++)
+        if(arr[i]==arr[i+1])
+            return true;
+        return false;
     }
 }
