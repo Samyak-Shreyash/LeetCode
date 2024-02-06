@@ -1,7 +1,7 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         int zero_Ct =0, product=1;
-        int[] answer = new int[nums.length];
+        int[] ret_arr = new int[nums.length];
         for(int i : nums)
         {
             if(i==0)
@@ -10,17 +10,17 @@ class Solution {
             product*=i;
         }
         if(zero_Ct>1)
-            return answer;
+            return ret_arr;
         for(int i =0;i<nums.length;i++)
         {
             if(zero_Ct==1) 
             {
                 if(nums[i]==0)
-                    answer[i]=product;
+                    ret_arr[i]=product;
             }
             else
-            answer[i]=product/nums[i];
+            ret_arr[i]=product/nums[i];
         }
-        return answer;
+        return ret_arr;
     }
 }
