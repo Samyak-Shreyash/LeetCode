@@ -1,26 +1,14 @@
 class Solution {
     public int trap(int[] height) {
-        
-        if(height==null || height.length<3)
-            return 0;
-        int i, l = height.length, water=0, level = 0;
-        int[] leftInc = new int[l];
-        int[] rightInc = new int[l];
-        leftInc[0]= height[0];
-        for(i=1;i<l;i++)
+        int i, left_pt=0, right_pt=height.length-1, water=0,max_left =height[left_pt],max_rt=height[right_pt];
+        for(i=1;i<height.length-1;i++)
         {
-            leftInc[i]=height[i]>leftInc[i-1]?height[i]:leftInc[i-1];
-        }
-        
-        rightInc[l-1]= height[l-1];
-        for(i=l-2;i>=0;i--)
-        {
-            rightInc[i]=height[i]>rightInc[i+1]?height[i]:rightInc[i+1];
-        }
-        for(i=0;i<l;i++)
-        {    
-            level=leftInc[i]<rightInc[i]?leftInc[i]:rightInc[i];
-            water+=level>height[i]?level-height[i]:0;
+            if(height[right_pt]<height[left_pt])
+            max_rt=max_rt>height[--right_pt]?max_rt:height[right_pt];
+            else
+            max_left=max_left>height[++left_pt]?max_left:height[left_pt];
+            water+= height[i]<max_left&& height[i]<max_rt?(max_left>max_rt?max_rt:max_left):height[i];
+            water-=height[i];
         }
         return water;
     }
