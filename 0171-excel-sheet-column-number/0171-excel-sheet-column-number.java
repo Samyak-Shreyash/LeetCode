@@ -1,8 +1,8 @@
 class Solution {
-    public int titleToNumber(String cT) {
+    public int titleToNumber(String s) {
         int pos=0;
-        for(char ch: cT.toCharArray())
-            pos=(pos*26)+ch-'A'+1;
+        for(int i=0;i<s.lrngth();i++)
+            pos=(pos*26)+s.charAt(i)-'A'+1;
         return pos;
     }
 }
