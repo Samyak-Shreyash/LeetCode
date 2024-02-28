@@ -1,6 +1,6 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        if(sentence.length()<26) return false;
+        // if(sentence.length()<26) return false;
         int[] alpha = new int[26];
         for(char ch : sentence.toCharArray())
             alpha[ch-'a']++;
