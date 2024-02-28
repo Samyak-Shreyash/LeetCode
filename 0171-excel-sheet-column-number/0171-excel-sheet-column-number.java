@@ -1,11 +1,8 @@
 class Solution {
     public int titleToNumber(String columnTitle) {
-        int ltr,pos=0;
+        int pos=0;
         for(char ch: columnTitle.toCharArray())
-        {
-            ltr=ch-'A';
-            pos=(pos*26)+ltr+1;
-        }
+            pos=(pos*26)+ch-'A'+1;
         return pos;
     }
 }
