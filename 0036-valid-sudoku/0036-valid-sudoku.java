@@ -5,9 +5,9 @@ class Solution {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
-                    char num = board[i][j];
-                    if (!soduko.add(num + "-Row:" + i) || !soduko.add(num + "-Column:" + j)
-                            || !soduko.add(num + "-Board:" + i / 3 + "," + j / 3))
+                    String num = "-"+board[i][j];
+                    if (!soduko.add(num + i) || !soduko.add(j+num)
+                            || !soduko.add(i / 3 + num + j / 3))
                         return false;
                 }
             }
