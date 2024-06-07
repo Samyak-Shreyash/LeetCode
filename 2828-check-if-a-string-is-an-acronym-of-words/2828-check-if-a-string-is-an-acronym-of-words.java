@@ -3,10 +3,8 @@ class Solution {
         if(words.size()!=s.length())
         return false;
         int i=0;
-        s=s.toLowerCase();
         for(String word : words)
         {
-            word= word.toLowerCase();
             if((word.charAt(0))!=s.charAt(i++))
             return false;
         }
