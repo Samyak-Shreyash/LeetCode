@@ -6,7 +6,7 @@ class Solution {
         for(int i=sent.length-1;i>=0;i--)
         {
         
-            sent[i]=sent[i].trim();
+            //sent[i]=sent[i].trim();
             if(sent[i].length()>0){
             if(i==sent.length-1){
             sentence+=sent[i];}
