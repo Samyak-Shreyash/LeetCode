@@ -1,14 +1,14 @@
 class Solution {
    public int minCostClimbingStairs(int[] cost) {
-    int dp[] = new int[3], i;
-    dp[0]=cost[0];
-    dp[1]=cost[1];
+    int p1,p2,curr, i;
+    p1=cost[0];
+    p2=cost[1];
     for(i=2;i<cost.length;i++)
     {
-        dp[2] = cost[i] + (dp[0]<dp[1]?dp[0]:dp[1]);
-        dp[0]=dp[1];
-        dp[1]= dp[2];
+        curr = cost[i] + (p1<p2?p1:p2);
+        p1=p2;
+        p2= curr;
     }
-    return (dp[0]<dp[1]?dp[0]:dp[1]);
+    return (p1<p2?p1:p2);
     }
 }
