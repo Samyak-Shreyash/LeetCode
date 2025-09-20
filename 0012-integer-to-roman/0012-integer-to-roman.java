@@ -1,43 +1,16 @@
 class Solution {
+    public static final String[] romans = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+    public static final Integer[] nums={1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    int i=0;
     public String intToRoman(int num) {
-
-        String numerals="IVXLCDM";
-        int i=0;
-        String roman ="";
-        while(num>0)
+        String roman="";
+        while(num>0 || i>nums.length)
         {
-            int d=num%10;
-            switch(d){
-                case 1:
-                roman=numerals.charAt(i)+""+roman;
-                break;
-                case 2:
-                roman=numerals.charAt(i)+""+numerals.charAt(i)+""+roman;
-                break;
-                case 3:
-                roman=numerals.charAt(i)+""+numerals.charAt(i)+""+numerals.charAt(i)+""+roman;
-                break;
-                case 4:
-                roman=numerals.charAt(i)+""+numerals.charAt(i+1)+""+roman;
-                break;
-                case 5:
-                roman=numerals.charAt(i+1)+""+roman;
-                break;
-                case 6:
-                roman=numerals.charAt(i+1)+""+numerals.charAt(i)+""+roman;
-                break;
-                case 7:
-                roman=numerals.charAt(i+1)+""+numerals.charAt(i)+""+numerals.charAt(i)+""+roman;
-                break;
-                case 8:
-                roman=numerals.charAt(i+1)+""+numerals.charAt(i)+""+numerals.charAt(i)+""+numerals.charAt(i)+""+roman;
-                break;
-                case 9:
-                roman=(numerals.charAt(i)+""+numerals.charAt(i+2)+""+roman);
-                break;
-            }
-            num/=10;
-            i+=2;
+            int d= num/nums[i];
+            while(d-->0)
+                roman+=romans[i];
+            num%=nums[i];
+            i++;
         }
         return roman;
     }
