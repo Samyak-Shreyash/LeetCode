@@ -7,7 +7,6 @@ class Solution {
         while(num>0)
         {
             int d=num%10;
-            System.out.print(d+"-"+numerals.charAt(i));
             switch(d){
                 case 1:
                 roman=numerals.charAt(i)+""+roman;
@@ -37,7 +36,6 @@ class Solution {
                 roman=(numerals.charAt(i)+""+numerals.charAt(i+2)+""+roman);
                 break;
             }
-            System.out.println("="+roman);
             num/=10;
             i+=2;
         }
