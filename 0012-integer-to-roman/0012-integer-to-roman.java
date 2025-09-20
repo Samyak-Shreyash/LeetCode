@@ -3,15 +3,13 @@ class Solution {
     public static final Integer[] nums={1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     int i=0;
     public String intToRoman(int num) {
-        String roman="";
-        while(num>0 || i>nums.length)
-        {
-            int d= num/nums[i];
-            while(d-->0)
-                roman+=romans[i];
-            num%=nums[i];
-            i++;
+        StringBuilder roman= new StringBuilder();
+        for (int i = 0; i < nums.length && num > 0; i++) {
+            while (nums[i] <= num) {
+                num -= nums[i];
+                roman.append(romans[i]);
+            }
         }
-        return roman;
+        return roman.toString();
     }
 }
