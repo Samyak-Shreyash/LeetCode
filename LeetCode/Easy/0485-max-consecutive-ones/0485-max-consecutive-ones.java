@@ -7,10 +7,10 @@ class Solution {
             {
                 if(ct>max)
                     max=ct;
-                ct=-1;
+                ct=0;
             }
 
-            ct++;
+            ct+=i;
         }
         if(ct>max)
             max=ct;
